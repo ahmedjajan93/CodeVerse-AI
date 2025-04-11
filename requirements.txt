@@ -2,7 +2,6 @@ streamlit
 langchain
 langchain-community
 python-dotenv
-fastapi
 pydantic 
-uvicorn
-gunicorn
+fastapi==0.95.0
+uvicorn[gunicorn]==0.18.2
