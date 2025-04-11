@@ -4,6 +4,7 @@ from pydantic import BaseModel
 from langchain.llms import Ollama
 from langchain.prompts import PromptTemplate
 import uvicorn
+import os  # Added missing import
 
 app = FastAPI()
 
@@ -44,4 +45,4 @@ async def summon_wizard(request: WizardRequest):
         raise HTTPException(status_code=500, detail=str(e))
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=int(os.environ.get("PORT", 80)))
+    uvicorn.run("main:app", host="0.0.0.0", port=int(os.environ.get("PORT", 8000)), reload=True)
